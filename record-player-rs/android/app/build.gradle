@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.joey.recordplayer'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.joey.recordplayer'
+        minSdk 21          // Fire OS 5 (Android 5.1) and newer
+        targetSdk 33
+        versionCode 1
+        versionName '0.1.0'
+    }
+
+    // A fixed key, so each new build can be installed over the old one.
+    signingConfigs {
+        release {
+            storeFile file('record-player.keystore')
+            storePassword 'recordplayer'
+            keyAlias 'recordplayer'
+            keyPassword 'recordplayer'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+}

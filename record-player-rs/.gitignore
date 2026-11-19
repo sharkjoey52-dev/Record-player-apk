@@ -1,0 +1,7 @@
+target/
+settings.json
+spotify_tokens.json
+android/app/src/main/jniLibs/
+android/app/build/
+android/build/
+android/.gradle/
